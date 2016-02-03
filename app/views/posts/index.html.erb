@@ -4,23 +4,7 @@
 
 <style>
 
-.grid {
-    width: 90%;
-    margin-left: 5%;
-}
 
-.grid-item {
-    width: 300px;
-    margin-bottom: 1em;
-}
-
-#non-media {
-    border: 1px solid black;
-    /*margin: 1em;*/
-    padding: 5em;
-    width: 300px;
-    margin-bottom: 1em;
-}
 
 </style>
 
@@ -28,7 +12,6 @@
 
     <div class="grid">
         <% @posts.each do |post| %>
-
             <% if post.vibe_type == "soundcloud" %>
                 <div class="grid-item" > 
                     <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe> 
@@ -39,14 +22,20 @@
                     <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe> 
                     <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
                 </div>
-            <% else %>
-                <div class="grid-item" id="non-media">
-                    <h1> here's a header</h1>
-                    <%= post.title %>
-                </div>
-                     <!-- link_to (image_tag post.image.url), picture_path(post)  -->
+            <% elsif post.vibe_type == 'image' %>
+                <!-- <h1> here's a header</h1> -->
+                <% if post.picture_file_size %>
+                    <div class="grid-item">
+                        <%= image_tag post.picture.url %>
+                    </div>
+                <% end %>
+                     
                     <!-- <p class="sort_by_value" style="display:none;">  post.created_at</p> -->
-
+            <% elsif post.vibe_type == 'quote' %>
+                <div class="grid-item" id="non-media">
+                    <h4> <%= post.title %> </h4>
+                    <p> <%= post.body %> </p>
+                </div>
             <% end %>
         <% end %>
     </div>

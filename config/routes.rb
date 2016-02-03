@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  # get 'home_controller/index'
 
-  root to: 'home#index'
+  # root to: 'home#index'
+  root to: 'posts#index'
 
   resources :posts
 
@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   # get 'about' => 'about#index'
   # get 'songs/show'
   # get 'songs/current'
+  get 'about' => 'home#about'
+  get 'music' => 'posts#music'
+
 
 
 

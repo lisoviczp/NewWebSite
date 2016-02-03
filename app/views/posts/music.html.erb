@@ -1,0 +1,15 @@
+<h1> good vibes </h2>
+
+
+<div class="container-fluid">
+  <div class="grid">
+      <% @posts.each do |post| %>
+          <% if post.vibe_type == "soundcloud" %>
+              <div class="grid-item" > 
+                  <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe> 
+                  <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+              </div>
+          <% end %>
+      <% end %>
+  </div>
+</div>

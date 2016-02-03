@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_Post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /Posts
   # GET /Posts.json
@@ -14,6 +14,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def music
+    @posts = Post.where(vibe_type: 'soundcloud')
+  end
+
+
   # GET /Posts/new
   def new
     @post = Post.new
@@ -23,10 +28,6 @@ class PostsController < ApplicationController
   def edit
   end
 
-
-  # This was my first ever rails application, and I modified the "Posts" model to encompass all types of media. 
-  # Rather than having 3 separate models for Posts, Songs, or Videos, I have one Posts model where you can choose 
-  # the "Type" of media it is. 
 
   # POST /Posts
   # POST /Posts.json
@@ -113,7 +114,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :image, :approved, :vibe_type, :body, :url, :uid)
+      params.require(:post).permit(:title, :picture, :approved, :vibe_type, :body, :url, :uid)
 
     end
 end

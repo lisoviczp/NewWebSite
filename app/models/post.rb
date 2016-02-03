@@ -1,5 +1,9 @@
 class Post < ActiveRecord::Base
 
+	attr_accessor :picture
+  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\Z/
+
 	def getSrc
 		if self.vibe_type == "soundcloud"
 			source ="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/"
