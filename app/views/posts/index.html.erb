@@ -1,0 +1,58 @@
+<!-- Replaced this page with the home/index.html.erb file -->
+<h3> submitted posts</h3>
+
+
+<style>
+
+.grid {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.grid-item {
+    width: 300px;
+    margin-bottom: 1em;
+}
+
+#non-media {
+    border: 1px solid black;
+    /*margin: 1em;*/
+    padding: 5em;
+    width: 300px;
+    margin-bottom: 1em;
+}
+
+</style>
+
+<div class="container-fluid" style="">
+
+    <div class="grid">
+        <% @posts.each do |post| %>
+
+            <% if post.vibe_type == "soundcloud" %>
+                <div class="grid-item" > 
+                    <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe> 
+                    <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+                </div>
+            <% elsif post.vibe_type == "youtube" %>
+                <div class="grid-item"> 
+                    <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe> 
+                    <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+                </div>
+            <% else %>
+                <div class="grid-item" id="non-media">
+                    <h1> here's a header</h1>
+                    <%= post.title %>
+                </div>
+                     <!-- link_to (image_tag post.image.url), picture_path(post)  -->
+                    <!-- <p class="sort_by_value" style="display:none;">  post.created_at</p> -->
+
+            <% end %>
+        <% end %>
+    </div>
+</div>
+
+
+
+</body>
+</html>

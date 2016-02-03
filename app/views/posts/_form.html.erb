@@ -1,0 +1,42 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="new-post">
+    <div class="field">          
+      Type: <%= f.select :vibe_type, ['image', 'soundcloud', 'youtube'] %> </br>
+    </div>
+
+    <div class="field">
+      <%= f.file_field :image, description: 'choose file', label: 'choose file' %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :title, placeholder: 'name it' %>
+    </div>
+    
+    <div class="field">
+      Body: <%= f.text_field :body %></br>
+    </div>
+
+    <div class="field">
+      URL: <%= f.text_field :url, placeholder: 'soundcloud/youtube link' %></br>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Submit"%>
+    </div>
+    <!-- , data: { confirm: "your file has been submitted for approval" }  -->
+  </div>
+
+
+<% end %>
