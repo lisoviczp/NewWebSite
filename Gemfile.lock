@@ -115,12 +115,14 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pg (0.18.3)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    puma (2.16.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -214,7 +216,9 @@ DEPENDENCIES
   masonry-rails
   mini_exiftool_vendored
   paperclip
+  pg
   pry-rails
+  puma
   rails (= 4.2.1)
   rails_12factor
   sass-rails (~> 5.0)
