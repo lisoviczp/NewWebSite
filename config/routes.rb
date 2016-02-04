@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'about' => 'home#about'
   get 'music' => 'posts#music'
 
+  get 'test' => 'posts#test'
 
 
 

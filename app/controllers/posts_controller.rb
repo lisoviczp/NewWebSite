@@ -8,6 +8,14 @@ class PostsController < ApplicationController
     @posts = Post.all.reverse
   end
 
+  def test
+    @posts = Post.paginate(:page => params[:page], :per_page => 20)
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   # GET /Posts/1
   # GET /Posts/1.json
   def show

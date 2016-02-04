@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+  if ($('.pagination').length) {
+    $(window).scroll(function() {
+      var url = $('.pagination .next_page').attr('href');
+      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 1000) 
+      {
+        $('.pagination').text("Please Wait...");
+		$('.grid').masonry( 'layout' );
+        return $.getScript(url);
+      }
+
+    });
+    return $(window).scroll();
+  }
+});

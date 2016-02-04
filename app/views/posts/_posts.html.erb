@@ -1,0 +1,27 @@
+    <% @posts.each do |post| %>
+        <% if post.vibe_type == "soundcloud" %>
+            <div class="grid-item" > 
+                <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe> 
+                <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+            </div>
+        <% elsif post.vibe_type == "youtube" %>
+            <div class="grid-item"> 
+                <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe> 
+                <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+            </div>
+        <% elsif post.vibe_type == 'image' %>
+            <!-- <h1> here's a header</h1> -->
+            <% if post.picture_file_size %>
+                <div class="grid-item">
+                    <%= image_tag post.picture.url %>
+                </div>
+            <% end %>
+                 
+                <!-- <p class="sort_by_value" style="display:none;">  post.created_at</p> -->
+        <% elsif post.vibe_type == 'quote' %>
+            <div class="grid-item" id="non-media">
+                <h4> <%= post.title %> </h4>
+                <p> <%= post.body %> </p>
+            </div>
+        <% end %>
+    <% end %>

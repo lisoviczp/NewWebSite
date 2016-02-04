@@ -45,18 +45,19 @@ group :development, :test do
   gem 'spring'
 end
 
+# fix this
 group :production do
-	gem 'pg'
+	# gem 'pg' 
 	gem 'rails_12factor'
-  gem 'puma'
+  # gem 'puma'
 end
 
 gem 'better_errors'
 gem 'paperclip'
 gem 'mini_exiftool_vendored'
 # gem 'aws-sdk'
-# gem 'aws-sdk', '< 2.0'
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '< 2.0'
+# gem 'aws-sdk', '~> 2'
 gem 'simple_form'
 gem 'devise'
 gem 'jquery-turbolinks'

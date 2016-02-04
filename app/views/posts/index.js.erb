@@ -1,0 +1,25 @@
+// Implementing infinite scrolling and calling masonry again on the newly added pictures.
+
+$(document).ready(function() {
+	
+	$('.grid').append("<%= escape_javascript render 'posts' %>");
+	$('.pagination').replaceWith("<%= escape_javascript will_paginate @posts %>");
+
+ //    var $container = $('#pictures');   
+ //    $container.imagesLoaded( function() {
+ //    	$container.isotope({ itemSelector: '.fancybox', sortBy: 'original-order' })	
+ //        $container.masonry({
+ //            itemSelector: '.fancybox',
+	//     	columnWidth: 320    
+ //        });
+	// 	$container.isotope({
+	// 		// options...
+	// 		itemSelector: '.fancybox',
+	// 		sortBy: 'original-order',
+	// 		masonry: {
+	// 			columnWidth: 320
+	// 		}
+	// 	});
+ //        $container.masonry('reloadItems');
+ //    });
+})
