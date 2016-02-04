@@ -73,3 +73,23 @@ input#post_url {
   padding-bottom: 4em;
   font-weight: 100;
 }
+
+.show-container {
+
+}
+
+#image img{
+  width: 50%;
+  margin-left: 25%;
+}
+
+iframe#show-soundcloud {
+  width:50%;
+  margin-left: 25%;
+}
+
+iframe#show-youtube {
+  width:70%;
+  margin-left: 15%;
+  height:500px;
+}

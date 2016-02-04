@@ -1,29 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="container-fluid" style="">
+  <div class="show-container">
+    <% if @post.vibe_type == "soundcloud" %>
+        <div class="show-item">
+            <iframe id="show-soundcloud" scrolling="no" frameborder="no" src="<%= @post.getSrc.to_s %>" ></iframe> 
+            <p class="sort_by_value" style="display:none;"> <%= @post.created_at %></p>
 
-<p>
-  <strong>Approved:</strong>
-  <%= @post.approved %>
-</p>
+        </div>
+    <% elsif @post.vibe_type == "youtube" %>
+        <div class="show-item">
+            <iframe id="show-youtube" frameborder="0" src="<%= @post.getSrc.to_s %>" > </iframe> 
+            <p class="sort_by_value" style="display:none;"> <%= @post.created_at %></p>
+        </div>
+    <% elsif @post.vibe_type == "image" %>
+      <% if @post.picture_file_size %>
+          <div class="show-item" id="image">
+              <%= image_tag @post.picture.url %>
+          </div>
+      <% end %>
+    <% elsif @post.vibe_type == "quote" %>
+      <div class="show-item" id="quote">
+          <h4> <%= @post.title %> </h4>
+          <p> <%= @post.body %> </p>
+      </div>
+    <% end %>
+    <div style="text-align:center;">
+      <% if user_signed_in? %>
+        <!-- approve / delete /edit /etc .. -->
+        <%= link_to 'edit', edit_post_path(@post) %> |
+        <% if @post.approved %>
+          <%= link_to 'disapprove', disapprove_the_post_path(@post) %> |
+        <% else %>
+          <%= link_to 'approve', approve_the_post_path(@post) %> |
+        <% end %>
+        <%= link_to 'delete', post_path(@post, :id => @post.id), method: :delete %> </br>
+      <% end %>
+    <%= link_to 'back', @posts_path %>
+    </div>
+  </div>
 
-<p>
-  <strong>Vibe type:</strong>
-  <%= @post.vibe_type %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @post.url %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</div>

@@ -101,16 +101,18 @@ class PostsController < ApplicationController
     # redirect_to Posts_path    
   end
 
-  def approveThePost 
+  def setApprove 
     @post=Post.find(params[:id])
-    @post.approvePostTrue
+    @post.approvePost
     @post.save
-    redirect_to Posts_path   
+    redirect_to posts_path   
   end
 
-  def get_last_approve
-    @post=Post.last 
-    redirect_to post_approve_path(@post)
+  def setDisapprove 
+    @post=Post.find(params[:id])
+    @post.disapprovePost
+    @post.save
+    redirect_to posts_path   
   end
 
 

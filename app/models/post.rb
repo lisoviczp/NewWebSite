@@ -15,4 +15,13 @@ class Post < ActiveRecord::Base
 		end	
 	end
 
+	def disapprovePost
+		self.approved=false
+	end 
+
+	def approvePost
+		self.approved=true
+	end
+
+
 end

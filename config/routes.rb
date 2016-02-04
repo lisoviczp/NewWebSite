@@ -24,7 +24,8 @@ Rails.application.routes.draw do
 
 
   # post 'posts/approveThePic/:id' => 'posts#approveThePost', as: 'approve_the_post_post'
-  # get 'posts/approveThePic/:id' => 'posts#approveThePost', as: 'approve_the_post_get'
+  get 'posts/setApprove/:id' => 'posts#setApprove', as: 'approve_the_post'
+  get 'posts/setDisapprove/:id' => 'posts#setDisapprove', as: 'disapprove_the_post'
 
   # get 'posts/approve/:id' => 'posts#approve', as: 'post_approve'
 
