@@ -137,3 +137,17 @@ ul.nav.navbar-nav {
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 1.2em;
 }
+
+
+.box{
+    /*display: none;*/
+      position: relative;
+    z-index: 100;
+    width: 100%;
+}
+
+a:hover + .box,.box:hover{
+    display: block;
+    position: relative;
+    z-index: 100;
+}
