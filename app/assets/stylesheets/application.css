@@ -126,12 +126,14 @@ a:link {
   background-color: white;
 }
 
-a:hover {
-  text-decoration: none;
-  background-color: white;
-}
 
 a:active {
   text-decoration: none;
   background-color: white;
+}
+
+
+ul.nav.navbar-nav {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2em;
 }
