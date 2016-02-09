@@ -72,6 +72,23 @@ input#post_url {
   margin-left: 30%;
   padding-bottom: 4em;
   font-weight: 100;
+  background-color: white;
+}
+
+.links-container {
+  /*text-align: center;*/
+  font-family: helvetica;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 2px solid gray;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 3em;
+  margin-bottom: 20em;
+  padding-bottom: 4em;
+  font-weight: 100;
+  background-color: white;
 }
 
 .show-container {
@@ -92,4 +109,29 @@ iframe#show-youtube {
   width:70%;
   margin-left: 15%;
   height:500px;
+}
+
+a:hover {
+  background-color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  background-color: white;
+}
+
+a:link {
+  text-decoration: none;
+  background-color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: white;
+}
+
+a:active {
+  text-decoration: none;
+  background-color: white;
 }

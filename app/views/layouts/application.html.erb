@@ -28,8 +28,10 @@
         <li><a href="/">home</a></li>
         <li><a href="/music">music</a></li>
         <li><a href="/about">about</a></li>
-        <li><a href="/test">test</a></li>
-        <li> <%= link_to 'upload', new_post_path %></li>
+        <% if user_signed_in? %>
+          <li><a href="/test">test</a></li>
+          <li> <%= link_to 'upload', new_post_path %></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!-- end -->
