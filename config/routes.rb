@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'music' => 'posts#music'
 
   get 'test' => 'posts#test'
+  get 'public' => 'posts#public_index'
 
 
 

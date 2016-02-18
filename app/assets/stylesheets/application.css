@@ -40,7 +40,7 @@ input#post_body {
   /*background-color: green;*/
   width: 25em;
   height: 10em;
-  
+
 
   /*resize: none;*/
 }
@@ -73,6 +73,7 @@ input#post_url {
   padding-bottom: 4em;
   font-weight: 100;
   background-color: white;
+  z-index: 5000;
 }
 
 .links-container {
@@ -89,6 +90,8 @@ input#post_url {
   padding-bottom: 4em;
   font-weight: 100;
   background-color: white;
+  z-index: 5000;
+
 }
 
 .show-container {
@@ -150,4 +153,9 @@ a:hover + .box,.box:hover{
     display: block;
     position: relative;
     z-index: 100;
+}
+
+.article-title {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size:3em;
 }

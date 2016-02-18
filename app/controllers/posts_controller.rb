@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @posts = Post.all.reverse
   end
 
+  def public_index
+    # redirect_to root_path
+    @posts = Post.all.reverse
+  end
+
   def test
     @posts = Post.paginate(:page => params[:page], :per_page => 20)
     respond_to do |format|
@@ -45,8 +50,8 @@ class PostsController < ApplicationController
     if @post.vibe_type == "soundcloud"
         start= 'content="soundcloud://sounds:'
         i = open(@post.url).read.index(start)
-        # @post.uid = open(@post.url).read[i+29..i+37] 
-        @post.url = open(@post.url).read[i+29..i+37] 
+        # @post.uid = open(@post.url).read[i+29..i+37]
+        @post.url = open(@post.url).read[i+29..i+37]
     elsif @post.vibe_type == "image"
       @post.url = @post.url
       # puts "no"
@@ -98,21 +103,21 @@ class PostsController < ApplicationController
     @post=Post.find(params[:id])
     @post.approvePost
     # @Post.approved=true
-    # redirect_to Posts_path    
+    # redirect_to Posts_path
   end
 
-  def setApprove 
+  def setApprove
     @post=Post.find(params[:id])
     @post.approvePost
     @post.save
-    redirect_to posts_path   
+    redirect_to posts_path
   end
 
-  def setDisapprove 
+  def setDisapprove
     @post=Post.find(params[:id])
     @post.disapprovePost
     @post.save
-    redirect_to posts_path   
+    redirect_to posts_path
   end
 
 
