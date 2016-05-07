@@ -4,21 +4,21 @@
 
 </style>
 
+
 <div class="container-fluid" style="">
     <div class="grid">
-
         <!-- If user's not signed in, only show approved images -->
         <% if !user_signed_in? %>
             <% @posts.each do |post| %>
                 <% if post.vibe_type == "soundcloud" and post.approved %>
-                    <div class="grid-item" > 
-                        <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe> 
+                    <div class="grid-item" >
+                        <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe>
                         <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
                     </div>
 
                 <% elsif post.vibe_type == "youtube" and post.approved %>
-                    <div class="grid-item"> 
-                        <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe> 
+                    <div class="grid-item">
+                        <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe>
                         <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
                     </div>
 
@@ -29,7 +29,7 @@
                             <%= image_tag post.picture.url %>
                         </div>
                     <% end %>
-                         
+
                 <% elsif post.vibe_type == 'quote' and post.approved %>
                     <div class="grid-item" id="non-media">
                         <h4> <%= post.title %> </h4>
@@ -41,8 +41,8 @@
         <% else %>
             <% @posts.each do |post| %>
                 <% if post.vibe_type == "soundcloud" %>
-                    <div class="grid-item" > 
-                        <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe> 
+                    <div class="grid-item" >
+                        <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe>
                         <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
                          <%= link_to "see whatsup", post_path(post) %>
                         <% if !post.approved %>
@@ -51,10 +51,10 @@
                     </div>
 
                 <% elsif post.vibe_type == "youtube" %>
-                    <div class="grid-item"> 
-                        <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe> 
+                    <div class="grid-item">
+                        <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe>
                         <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
-                        <%= link_to "see whatsup", post_path(post) %>   
+                        <%= link_to "see whatsup", post_path(post) %>
                         <% if !post.approved %>
                             <span style="color:red;">NOT APPROVED</span>
                         <% end %>
@@ -71,7 +71,7 @@
                             <% end %>
                         </div>
                     <% end %>
-                         
+
                 <% elsif post.vibe_type == 'quote' %>
                     <div class="grid-item" id="non-media">
                         <h4> <%= post.title %> </h4>
