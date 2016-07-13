@@ -1,29 +1,5 @@
 <link href='https://fonts.googleapis.com/css?family=Lato:100,400' rel='stylesheet' type='text/css'>
 
-<style>
-
-.phils-container {
-  width: 992px;
-  margin: auto;
-}
-
-#non-media {
-    padding: 5em;
-    width: 300px;
-    margin-bottom: 1em;
-    font-family: 'Lato', sans-serif;
-}
-
-h4 {
-  font-family: 'Lato', sans-serif;
-}
-
-p {
-  font-family: 'Lato', sans-serif;
-}
-
-</style>
-
 <div class="phils-container">
   <div class="container-fluids" style="">
     <div class="grid">
@@ -52,8 +28,8 @@ p {
            <% elsif post.vibe_type == 'image' %>
                <!-- <h1> here's a header</h1> -->
                <% if post.picture_file_size %>
-                   <div class="grid-item">
-                       <%= image_tag post.picture.url %>
+                   <div class="grid-item" style="width:300px;">
+                       <span style="width:300px;"><%= image_tag post.picture.url %></span>
                        <%= link_to "see whatsup", post_path(post) %>
                        <% if !post.approved %>
                            <span style="color:red;">NOT APPROVED</span>
@@ -75,3 +51,171 @@ p {
      </div>
    </div>
 </div>
+
+<style>
+
+
+ .phils-container {
+   width: 992px;
+   margin: auto;
+ }
+
+.grid-item {
+    width: 300px;
+    margin-bottom: 1em;
+    margin-left: 12px;
+    margin-right:12px;
+}
+
+
+#non-media {
+    padding: 5em;
+    width: 300px;
+    margin-bottom: 1em;
+    font-family: 'Lato', sans-serif;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+input#post_body {
+  /*background-color: green;*/
+  width: 25em;
+  height: 10em;
+
+
+  /*resize: none;*/
+}
+
+input#post_url {
+	width:25em;
+}
+
+.new-post {
+	width: 40%;
+	margin-left: 30%;
+	border: 1px solid gray;
+	padding: 5em;
+}
+
+
+.grid-item img {
+    width: 300px;
+}
+
+.about-container {
+  text-align: center;
+  /*font-family: helvetica;*/
+  font-family: 'Lato', sans-serif;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 2px solid gray;
+  width: 40%;
+  margin-left: 30%;
+  padding-bottom: 4em;
+  font-weight: 100;
+  background-color: white;
+  z-index: 5000;
+}
+
+.links-container {
+  /*text-align: center;*/
+  /*font-family: helvetica;*/
+  font-family: 'Lato', sans-serif;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 2px solid gray;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 3em;
+  margin-bottom: 20em;
+  padding-bottom: 4em;
+  font-weight: 100;
+  background-color: white;
+  z-index: 5000;
+
+}
+
+.show-container {
+
+}
+
+#image img{
+  width: 50%;
+  margin-left: 25%;
+}
+
+iframe#show-soundcloud {
+  width:50%;
+  margin-left: 25%;
+}
+
+iframe#show-youtube {
+  width:70%;
+  margin-left: 15%;
+  height:500px;
+}
+
+a:hover {
+  background-color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  background-color: white;
+}
+
+a:link {
+  text-decoration: none;
+  background-color: white;
+}
+
+
+a:active {
+  text-decoration: none;
+  background-color: white;
+}
+
+
+ul.nav.navbar-nav {
+  /*font-family: 'Lato', sans-serif;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2em;
+}
+
+.navbar-default {
+  background-color:white !important;
+}
+
+.box{
+    /*display: none;*/
+    position: relative;
+    z-index: 100;
+    width: 100%;
+}
+
+a:hover + .box,.box:hover{
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.article-title {
+  /*font-family: 'Lato', sans-serif;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size:3em;
+}
+
+</style>
