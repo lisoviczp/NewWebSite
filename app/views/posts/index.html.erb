@@ -4,51 +4,84 @@
   <div class="container-fluids" style="">
     <div class="grid">
        <!-- If user's not signed in, only show approved images -->
-       <% @posts.each do |post| %>
-           <% if post.vibe_type == "soundcloud" %>
-               <div class="grid-item" >
-                   <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe>
-                   <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
-                    <%= link_to "see whatsup", post_path(post) %>
-                   <% if !post.approved %>
-                       <span style="color:red;">NOT APPROVED</span>
-                   <% end %>
-               </div>
+       <% if !user_signed_in? %>
+           <% @posts.each do |post| %>
+               <% if post.vibe_type == "soundcloud" and post.approved %>
+                   <div class="grid-item" >
+                       <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe>
+                       <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+                   </div>
 
-           <% elsif post.vibe_type == "youtube" %>
-               <div class="grid-item">
-                   <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe>
-                   <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
-                   <%= link_to "see whatsup", post_path(post) %>
-                   <% if !post.approved %>
-                       <span style="color:red;">NOT APPROVED</span>
-                   <% end %>
-               </div>
+               <% elsif post.vibe_type == "youtube" and post.approved %>
+                   <div class="grid-item">
+                       <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe>
+                       <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+                   </div>
 
-           <% elsif post.vibe_type == 'image' %>
-               <!-- <h1> here's a header</h1> -->
-               <% if post.picture_file_size %>
-                   <div class="grid-item" style="width:300px;">
-                       <span style="width:300px;"><%= image_tag post.picture.url %></span>
+               <% elsif post.vibe_type == 'image' and post.approved%>
+                   <!-- <h1> here's a header</h1> -->
+                   <% if post.picture_file_size %>
+                       <div class="grid-item">
+                           <%= image_tag post.picture.url %>
+                       </div>
+                   <% end %>
+
+               <% elsif post.vibe_type == 'quote' and post.approved %>
+                   <div class="grid-item" id="non-media">
+                       <h4> <%= post.title %> </h4>
+                       <p> <%= post.body %> </p>
+                   </div>
+               <% end %>
+           <% end %>
+
+       <% else %>
+           <% @posts.each do |post| %>
+               <% if post.vibe_type == "soundcloud" %>
+                   <div class="grid-item" >
+                       <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe>
+                       <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+                        <%= link_to "see whatsup", post_path(post) %>
+                       <% if !post.approved %>
+                           <span style="color:red;">NOT APPROVED</span>
+                       <% end %>
+                   </div>
+
+               <% elsif post.vibe_type == "youtube" %>
+                   <div class="grid-item">
+                       <iframe width="300" frameborder="0"src="<%= post.getSrc.to_s %>" > </iframe>
+                       <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+                       <%= link_to "see whatsup", post_path(post) %>
+                       <% if !post.approved %>
+                           <span style="color:red;">NOT APPROVED</span>
+                       <% end %>
+                   </div>
+
+               <% elsif post.vibe_type == 'image' %>
+                   <!-- <h1> here's a header</h1> -->
+                   <% if post.picture_file_size %>
+                       <div class="grid-item" style="width:300px;">
+                           <%= image_tag post.picture.url %>
+                           <span style="width:300px;"><%= link_to "see whatsup", post_path(post) %></span>
+                           <% if !post.approved %>
+                               <span style="color:red;">NOT APPROVED</span>
+                           <% end %>
+                       </div>
+                   <% end %>
+
+               <% elsif post.vibe_type == 'quote' %>
+                   <div class="grid-item" id="non-media">
+                       <h4> <%= post.title %> </h4>
+                       <p> <%= post.body %> </p>
                        <%= link_to "see whatsup", post_path(post) %>
                        <% if !post.approved %>
                            <span style="color:red;">NOT APPROVED</span>
                        <% end %>
                    </div>
                <% end %>
-
-           <% elsif post.vibe_type == 'quote' %>
-               <div class="grid-item" id="non-media">
-                   <h4> <%= post.title %> </h4>
-                   <p> <%= post.body %> </p>
-                   <%= link_to "see whatsup", post_path(post) %>
-                   <% if !post.approved %>
-                       <span style="color:red;">NOT APPROVED</span>
-                   <% end %>
-               </div>
            <% end %>
        <% end %>
      </div>
+
    </div>
 </div>
 
