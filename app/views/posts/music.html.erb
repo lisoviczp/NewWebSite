@@ -1,15 +1,40 @@
-<h1> good vibes </h2>
+<link href='https://fonts.googleapis.com/css?family=Lato:100,400' rel='stylesheet' type='text/css'>
 
+<style>
 
-<div class="container-fluid">
-  <div class="grid">
-      <% @posts.each do |post| %>
-          <% if post.vibe_type == "soundcloud" and post.approved %>
-              <div class="grid-item" > 
-                  <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe> 
-                  <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
-              </div>
-          <% end %>
-      <% end %>
+.phils-container {
+  width: 992px;
+  margin: auto;
+}
+
+#non-media {
+    padding: 5em;
+    width: 300px;
+    margin-bottom: 1em;
+    font-family: 'Lato', sans-serif;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+</style>
+
+<div class="phils-container">
+  <div class="container-fluids" style="">
+    <div class="grid">
+        <% @posts.each do |post| %>
+            <% if post.vibe_type == "soundcloud" and post.approved %>
+                <div class="grid-item" >
+                    <iframe width="300" scrolling="no" frameborder="no" src="<%= post.getSrc.to_s %>" ></iframe>
+                    <p class="sort_by_value" style="display:none;"> <%= post.created_at %></p>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
   </div>
 </div>

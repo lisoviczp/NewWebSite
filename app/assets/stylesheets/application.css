@@ -29,7 +29,6 @@
 
 
 #non-media {
-    /*border: 1px solid black;*/
     padding: 5em;
     width: 300px;
     margin-bottom: 1em;
@@ -75,7 +74,8 @@ input#post_url {
 
 .about-container {
   text-align: center;
-  font-family: helvetica;
+  /*font-family: helvetica;*/
+  font-family: 'Lato', sans-serif;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
   border-top: 1px solid gray;
@@ -90,7 +90,8 @@ input#post_url {
 
 .links-container {
   /*text-align: center;*/
-  font-family: helvetica;
+  /*font-family: helvetica;*/
+  font-family: 'Lato', sans-serif;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
   border-top: 1px solid gray;
@@ -149,14 +150,18 @@ a:active {
 
 
 ul.nav.navbar-nav {
+  /*font-family: 'Lato', sans-serif;*/
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 1.2em;
 }
 
+.navbar-default {
+  background-color:white !important;
+}
 
 .box{
     /*display: none;*/
-      position: relative;
+    position: relative;
     z-index: 100;
     width: 100%;
 }
@@ -168,6 +173,7 @@ a:hover + .box,.box:hover{
 }
 
 .article-title {
+  /*font-family: 'Lato', sans-serif;*/
   font-family: 'Open Sans Condensed', sans-serif;
   font-size:3em;
 }
