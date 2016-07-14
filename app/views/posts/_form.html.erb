@@ -1,48 +1,219 @@
+<div class="container-fluid">
+    <div class="about-container">
+        <div class="new-post">
+          <%= form_for(@post) do |f| %>
+            <% if @post.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+                <ul>
+                <% @post.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+              <div class="field">          
+                <%= f.select :vibe_type, ['image', 'soundcloud', 'youtube', 'quote'] %> </br>
+              </div>
+
+              <div class="field">
+                <%= f.file_field :picture, description: 'choose file', label: 'choose file' %>
+              </div>
+
+              <div class="field">
+                <%= f.text_field :title, placeholder: 'name it' %>
+              </div>
+              
+              <div class="field" wrap="hard">
+                <%= f.text_field :body, placeholder: 'body' %></br>
+              </div>
+
+              <div class="field">
+                <%= f.text_field :url, placeholder: 'soundcloud/youtube link' %></br>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Submit"%>
+              </div>
+              <!-- , data: { confirm: "your file has been submitted for approval" }  -->
+              
+              <%= link_to 'Back', posts_path %>
+          <% end %>
+        </div>
+    </div>
+</div>
+
 <style>
 
 
 
+
+ .phils-container {
+   width: 992px;
+   max-width: 992px !important;
+   margin: auto;
+ }
+
+.grid-item {
+    width: 300px;
+    margin-bottom: 1em;
+    margin-left: 12px;
+    margin-right:12px;
+}
+
+
+#non-media {
+    padding: 5em;
+    width: 300px;
+    margin-bottom: 1em;
+    font-family: 'Lato', sans-serif;
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+input#post_body {
+  /*background-color: green;*/
+  width: 25em;
+  height: 10em;
+
+
+  /*resize: none;*/
+}
+
+input#post_url {
+  width:25em;
+}
+
+.new-post {
+  width: 40%;
+  margin-left: 30%;
+  border: 1px solid gray;
+  padding: 5em;
+}
+
+
+.grid-item img {
+    width: 300px;
+}
+
+.about-container {
+  text-align: center;
+  /*font-family: helvetica;*/
+  font-family: 'Lato', sans-serif;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 2px solid gray;
+  width: 40%;
+  margin-top: 50px;
+  margin-left: 30%;
+  padding-bottom: 4em;
+  font-weight: 100;
+  background-color: white;
+  z-index: 5000;
+}
+
+.links-container {
+  /*text-align: center;*/
+  /*font-family: helvetica;*/
+  font-family: 'Lato', sans-serif;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 2px solid gray;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 3em;
+  margin-bottom: 20em;
+  padding-bottom: 4em;
+  font-weight: 100;
+  background-color: white;
+  z-index: 5000;
+
+}
+
+.show-container {
+
+}
+
+#image img{
+  width: 50%;
+  margin-left: 25%;
+}
+
+iframe#show-soundcloud {
+  width:50%;
+  margin-left: 25%;
+}
+
+iframe#show-youtube {
+  width:70%;
+  margin-left: 15%;
+  height:500px;
+}
+
+a:hover {
+  background-color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  background-color: white;
+}
+
+a:link {
+  text-decoration: none;
+  background-color: white;
+}
+
+
+a:active {
+  text-decoration: none;
+  background-color: white;
+}
+
+
+ul.nav.navbar-nav {
+  /*font-family: 'Lato', sans-serif;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.2em;
+}
+
+.navbar-default {
+  background-color:white !important;
+}
+
+.box{
+    /*display: none;*/
+    position: relative;
+    z-index: 100;
+    width: 100%;
+}
+
+a:hover + .box,.box:hover{
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.article-title {
+  /*font-family: 'Lato', sans-serif;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size:3em;
+}
+
+
 </style>
-
-<div class="new-post">
-  <%= form_for(@post) do |f| %>
-    <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-        <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-      <div class="field">          
-        <%= f.select :vibe_type, ['image', 'soundcloud', 'youtube', 'quote'] %> </br>
-      </div>
-
-      <div class="field">
-        <%= f.file_field :picture, description: 'choose file', label: 'choose file' %>
-      </div>
-
-      <div class="field">
-        <%= f.text_field :title, placeholder: 'name it' %>
-      </div>
-      
-      <div class="field" wrap="hard">
-        <%= f.text_field :body, placeholder: 'body' %></br>
-      </div>
-
-      <div class="field">
-        <%= f.text_field :url, placeholder: 'soundcloud/youtube link' %></br>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Submit"%>
-      </div>
-      <!-- , data: { confirm: "your file has been submitted for approval" }  -->
-      
-      <%= link_to 'Back', posts_path %>
-  <% end %>
-</div>
